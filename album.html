@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album imut liaa</title>
+    <style>
+        /* Tampilan Background & Font */
+        body {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0, #ff9a9e);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animasi Drop saat masuk */
+        .container {
+            animation: dropAnim 1.2s ease-out;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        @keyframes dropAnim {
+            0% { transform: translateY(-100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Styling Teks & Efek Hover Warna */
+        h1 {
+            color: #d81b60;
+            font-size: 2.5rem;
+            transition: color 0.3s;
+            cursor: default;
+        }
+
+        h1:hover {
+            color: #ad1457; /* Warna berubah sedikit lebih gelap */
+        }
+
+        p {
+            color: #880e4f;
+            font-weight: 500;
+            margin-bottom: 30px;
+            transition: color 0.3s;
+        }
+
+        p:hover {
+            color: #6a1b9a;
+        }
+
+        /* Grid Foto */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            position: relative;
+        }
+
+        /* Menu/Bingkai Foto */
+        .photo-card {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Efek Blur saat Hover */
+        .photo-card img {
+            width: 100%;
+            border-radius: 10px;
+            transition: filter 0.4s ease;
+            display: block;
+        }
+
+        .photo-card:hover img {
+            filter: blur(5px);
+        }
+
+        /* Teks Menu di dalam Foto (Muncul saat hover) */
+        .menu-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 2;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .photo-card:hover .menu-label {
+            opacity: 1;
+        }
+
+        /* Elemen Love di Sisi-sisi */
+        .heart {
+            position: fixed;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 20px;
+            user-select: none;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Imelia Selviani</h1>
+        <p>maaf yaa kalo aku itu ngeselin ehehe, kamu jangan benci aku karena aku ngeselin yaa, dan ini web khusus kamu love youu</p>
+
+        <div class="gallery">
+            <div class="photo-card">
+                <span class="menu-label">Maafin aku yaa dan tetap jadi lucuu</span>
+                <img src="foto1.jpeg" alt="foto">
+            </div>
+            <div class="photo-card">
+                <span class="menu-label">Kamu jangan marah mulu kalo aku bulii</span>
+                <img src="foto2.jpeg" alt="foto">
+            </div>
+            <div class="photo-card">
+                <span class="menu-label">Kamu jangan sampe nyesel ya karena pilih akuu</span>
+                <img src="foto3.jpeg" alt="foto">
+            </div>
+            <div class="photo-card">
+                <span class="menu-label">Hanya karena aku buli kamu dan bikin kesell</span>
+                <img src="foto4.jpeg" alt="foto">
+            </div>
+            <div class="photo-card">
+                <span class="menu-label">Kan kamu yang minta mau cowo tengil wlee</span>
+                <img src="foto5.jpeg" alt="foto">
+            </div>
+            <div class="photo-card">
+                <span class="menu-label">Candaa, maafin aku yaa sayangg</span>
+                <img src="foto6.jpeg" alt="foto">
+            </div>
+            <div class="photo-card">
+                <span class="menu-label">Kamu lagi kesel itu lucu dan cantik tauu</span>
+                <img src="foto9.jpeg" alt="foto">
+            </div>
+            <div class="photo-card">
+                <span class="menu-label">Foto ini buktinya kamu selalu lucuu</span>
+                <img src="foto8.jpeg" alt="foto">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createHearts() {
+            const heartsCount = 15;
+            for (let i = 0; i < heartsCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.opacity = Math.random();
+                document.body.appendChild(heart);
+            }
+        }
+        createHearts();
+    </script>
+
+</body>
+</html>
